@@ -1,5 +1,5 @@
 require_relative 'PolyTreeNode.rb'
-
+require 'byebug'
 class KnightPathFinder
 
     attr_accessor :root_node, :considered_positions, :start_pos
@@ -10,10 +10,6 @@ class KnightPathFinder
         @start_pos = start_pos
         @considered_positions = [start_pos]
         build_move_tree
-    end
-
-    def build_move_tree
-        #building tree
     end
 
     def self.valid_moves(pos)
@@ -27,18 +23,19 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
-        valid = KnightPathFinder.valid_moves(pos)
-        valid.each do |new_pos|
-            @considered_positions << new_pos if !@considered_positions.include?(new_pos)
-        end
+        moves = KnightPathFinder.valid_moves(pos)
+        valid = moves.reject { |new_pos| @considered_positions.include?(new_pos) }
+        valid.each { |new_pos| @considered_positions << new_pos }
     end
 
     def build_move_tree
         self.root_node = PolyTreeNode.new(start_pos)
         nodes = [root_node]
+
         until nodes.empty?
             current_node = nodes.shift 
             current_pos = current_node.value 
+
             new_move_positions(current_pos).each do |next_pos|
                 next_node = PolyTreeNode.new(next_pos)
                 nodes << next_node
@@ -52,3 +49,6 @@ class KnightPathFinder
 
 
 end
+
+k = KnightPathFinder.new([0,0])
+p k.considered_positions.length
