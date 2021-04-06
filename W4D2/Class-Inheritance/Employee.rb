@@ -1,3 +1,4 @@
+require 'byebug'
 class Employee
 
     attr_accessor :salary, :boss
@@ -23,14 +24,17 @@ end
 
 class Manager < Employee
 
+    attr_reader :employees
+
     def initialize(name, title, salary, boss = nil)
         super(name, title, salary, boss = nil)
+        self.boss = boss
         @employees = []
     end
 
     def bonus(multiplier)
         bonus = 0
-        @employees.each { |employee| bonus += employee.salary * multiplier }
+        self.get_all_employees.each { |employee| bonus += employee.salary * multiplier }
         bonus
     end
 
@@ -39,11 +43,19 @@ class Manager < Employee
     end
 
     def get_all_employees
+        # debugger
         all_employee = []
-        queue = @employee
+        queue = self.employees
+        # p queue
         until queue.empty?
-            queue.first.
-            all_employee << queue.shift
+            current_employee = queue.shift
+            all_employee << current_employee
+            if current_employee.is_a?(Manager)
+                queue.concat(current_employee.employees)
+            end
+        end
+
+        all_employee
     end
 end
 
