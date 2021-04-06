@@ -1,3 +1,6 @@
+require_relative 'piece.rb'
+
+
 class Board
     attr_reader :rows
 
@@ -25,14 +28,12 @@ class Board
 
     def print
         # print board with piece names
+        rows.each do |row|
+            row.each do |ele|
+                p ele.name
+            end
+        end
     end
 
 end
 
-class Piece
-
-    def initialize(name)
-        @name = name
-    end
-
-end
