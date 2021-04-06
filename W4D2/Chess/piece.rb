@@ -17,8 +17,13 @@ class Piece
     end
 
     private
+
     def move_into_check?(end_pos)
-        valid_moves.include?(end_pos)
+        get_all_moves(end_pos).include?(king_pos)
+        #method to switch color
+        #method that finds king pos
+        #get all moves method
+        
     end
 
 end
