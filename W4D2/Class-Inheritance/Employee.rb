@@ -11,9 +11,10 @@ class Employee
     end
 
     def boss=(boss)
+        # debugger
         @boss = boss
         if boss != nil
-            @boss.add_employees(self)
+            boss.add_employees(self)
         end
     end
 
@@ -27,8 +28,8 @@ class Manager < Employee
     attr_reader :employees
 
     def initialize(name, title, salary, boss = nil)
-        super(name, title, salary, boss = nil)
-        self.boss = boss
+        super(name, title, salary, boss)
+        # self.boss = boss
         @employees = []
     end
 
