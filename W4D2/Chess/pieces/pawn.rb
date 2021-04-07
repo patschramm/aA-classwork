@@ -16,7 +16,7 @@ class Pawn < Piece
         possible_moves = []
         forward_steps.each do |x, y|
             curr_move = [pos[0] + x, pos[1] + y]
-            possible_moves.concat(curr_move) if board[curr_move].is_a?(NullPiece)
+            possible_moves << curr_move if board[curr_move].is_a?(NullPiece)
         end
         possible_moves
     end
@@ -24,17 +24,17 @@ class Pawn < Piece
     private
     def at_start_row?
         if color == :white
-            return pos[1] == 6 
+            return pos[0] == 1 
         else
-            return pos[1] == 1
+            return pos[0] == 6
         end
     end
 
     def forward_dir
         if color == :white
-            return -1
-        else
             return 1
+        else
+            return -1
         end
     end
 

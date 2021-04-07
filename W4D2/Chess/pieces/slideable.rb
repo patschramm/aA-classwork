@@ -22,12 +22,11 @@ module Slideable
         # build moves we can make
         curr_x, curr_y = pos
         moves = []
-
         until 0 != 0
             curr_x += dx
             curr_y += dy
             pos = [curr_x, curr_y]
-            break if !board.in_bounds?(pos)
+            break if !board.in_bounds?(pos) || !board[pos].is_a?(NullPiece)
             moves << pos
         end
         moves

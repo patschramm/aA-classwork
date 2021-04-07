@@ -30,10 +30,8 @@ class Board
         raise "Not your piece" if piece.color != color
         raise "Not a valid move" if !piece.valid_moves.include?(end_pos)
 
-        self[start_pos], self[end_pos] = self[end_pos], piece
+        self[start_pos], self[end_pos] = NullPiece.instance, piece
         piece.pos = end_pos
-           
-       
     end
 
     def fill_pawns(color)
@@ -72,6 +70,9 @@ class Board
 end
 
 a = Board.new
-# a.print_b
-a.move_piece([0,0], [3,0], :white)
+a.move_piece([1,0], [3,0], :white)
+a.move_piece([0,0], [2,0], :white)
+a.move_piece([2,0], [2,1], :white)
+a.move_piece([1,3], [2,3], :white)
+a.move_piece([2,1], [6,1], :white)
 a.print_b

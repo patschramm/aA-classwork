@@ -12,10 +12,9 @@ class Piece
     end
 
     def valid_moves
-        # p moves
         moves.select do |pos|
             x, y = pos
-            pos if board.in_bounds?(pos) && board[pos].color != color
+            board.in_bounds?(pos) && (board[pos].color != color || board[pos].is_a?(NullPiece))
         end
     end
 
@@ -32,7 +31,7 @@ class Piece
     private
 
     def move_into_check?(end_pos)
-        get_all_moves(end_pos).include?(king_pos)
+        # get_all_moves(end_pos).include?(king_pos)
         #method to switch color
         #method that finds king pos
         #get all moves method
