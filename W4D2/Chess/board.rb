@@ -1,4 +1,5 @@
 require_relative 'pieces.rb'
+require 'byebug'
 
 class Board
     attr_reader :rows
@@ -23,9 +24,16 @@ class Board
     end
 
     def move_piece(start_pos, end_pos, color)
-        if end_pos.empty? &&
-            self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
+        piece = self[start_pos]
         
+        
+        raise "Not your piece" if piece.color != color
+        raise "Not a valid move" if !piece.valid_moves.include?(end_pos)
+
+        self[start_pos], self[end_pos] = self[end_pos], piece
+        piece.pos = end_pos
+           
+       
     end
 
     def fill_pawns(color)
@@ -64,4 +72,6 @@ class Board
 end
 
 a = Board.new
+# a.print_b
+a.move_piece([0,0], [3,0], :white)
 a.print_b

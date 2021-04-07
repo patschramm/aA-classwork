@@ -12,7 +12,7 @@ module Slideable
 
     def moves
         possible_moves = []
-        moves_dirs.each do |x, y|
+        move_dirs.each do |x, y|
             possible_moves.concat(grow_unblocked_moves_in_dir(x, y))
         end
         possible_moves

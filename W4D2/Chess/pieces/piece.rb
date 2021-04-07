@@ -12,6 +12,7 @@ class Piece
     end
 
     def valid_moves
+        # p moves
         moves.select do |pos|
             x, y = pos
             pos if board.in_bounds?(pos) && board[pos].color != color

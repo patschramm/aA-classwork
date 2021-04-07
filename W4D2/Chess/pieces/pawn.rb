@@ -18,6 +18,7 @@ class Pawn < Piece
             curr_move = [pos[0] + x, pos[1] + y]
             possible_moves.concat(curr_move) if board[curr_move].is_a?(NullPiece)
         end
+        possible_moves
     end
 
     private
