@@ -1,11 +1,10 @@
-require_relative 'piece.rb'
-
+require_relative 'pieces.rb'
 
 class Board
     attr_reader :rows
 
     def initialize
-        @rows = Array.new(8) {Array.new(8) {Piece.new('')}}
+        @rows = Array.new(8) {Array.new(8) {NullPiece.instance}}
     end
 
     def [](pos)
@@ -35,10 +34,14 @@ class Board
         # print board with piece names
         rows.each do |row|
             row.each do |ele|
-                p ele.name
+                p ele.symbol
             end
         end
     end
 
 end
 
+a = Board.new
+rook = Rook.new(a, :white, [0,0])
+# p a
+p a.print
