@@ -65,3 +65,4 @@ module Slideable
 end
 
 class Rook < Piece
+end
