@@ -41,10 +41,25 @@ module Slideable
 
     def moves
         possible_moves = []
-        moves_dirs.each do |dir|
-            curr_x, curr_y = dir
-            
+        moves_dirs.each do |x, y|
+            possible_moves.concat(grow_unblocked_moves_in_dir(x, y))
         end
+        possible_moves
+    end
+
+    def grow_unblocked_moves_in_dir(dx, dy)
+        # build moves we can make
+        curr_x, curr_y = pos
+        moves = []
+
+        until 0 != 0
+            curr_x += dx
+            curr_y += dy
+            pos = [curr_x, curr_y]
+            break if curr_x > 7 || curr_x < 0 || curr_y > 7 || curr_y < 0
+            moves << pos
+        end
+        moves
     end
 
 end
