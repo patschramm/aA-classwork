@@ -18,6 +18,16 @@ class Piece
         end
     end
 
+    def empty?
+        board[pos].is_a?(NullPiece)
+    end
+
+    def to_s
+        " #{symbol} "
+    end
+    # def pos=(val)
+    #     board[pos]
+    # end
     private
 
     def move_into_check?(end_pos)

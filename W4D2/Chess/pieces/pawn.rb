@@ -13,7 +13,11 @@ class Pawn < Piece
     end
 
     def moves
-
+        possible_moves = []
+        forward_steps.each do |x, y|
+            curr_move = [pos[0] + x, pos[1] + y]
+            possible_moves.concat(curr_move) if board[curr_move].is_a?(NullPiece)
+        end
     end
 
     private
@@ -37,6 +41,7 @@ class Pawn < Piece
         pawn_moves = []
         pawn_moves << [forward_dir * 2, 0] if at_start_row?
         pawn_moves << [forward_dir, 0]
+        pawn_moves
     end
     
     def side_attacks

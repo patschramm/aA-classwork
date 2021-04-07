@@ -5,6 +5,7 @@ class Board
 
     def initialize
         @rows = Array.new(8) {Array.new(8) {NullPiece.instance}}
+        fill_board
     end
 
     def [](pos)
@@ -21,8 +22,28 @@ class Board
         self[pos] = piece
     end
 
-    def move_piece(start_pos, end_pos)
-        self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
+    def move_piece(start_pos, end_pos, color)
+        if end_pos.empty? &&
+            self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
+        
+    end
+
+    def fill_pawns(color)
+        row = (color == :white) ? 1 : 6
+        (0..7).each { |col| Pawn.new(self, color, [row, col]) }
+    end
+
+    def fill_back_row(color)
+        pieces = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
+        row = (color == :white) ? 0 : 7
+        pieces.each_with_index { |piece, col| piece.new(self, color, [row, col]) }
+    end
+
+    def fill_board
+        fill_pawns(:white)
+        fill_pawns(:black)
+        fill_back_row(:white)
+        fill_back_row(:black)
     end
 
     def in_bounds?(pos)
@@ -30,11 +51,12 @@ class Board
         (0..7).to_a.include?(x) && (0..7).to_a.include?(y)
     end
 
-    def print
+    def print_b
         # print board with piece names
         rows.each do |row|
+            puts ''
             row.each do |ele|
-                p ele.symbol
+                print ele.to_s
             end
         end
     end
@@ -42,6 +64,4 @@ class Board
 end
 
 a = Board.new
-rook = Rook.new(a, :white, [0,0])
-# p a
-p a.print
+a.print_b
