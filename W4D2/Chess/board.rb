@@ -26,6 +26,11 @@ class Board
         self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
     end
 
+    def in_bounds?(pos)
+        x, y = pos
+        (0..7).to_a.include?(x) && (0..7).to_a.include?(y)
+    end
+
     def print
         # print board with piece names
         rows.each do |row|
@@ -36,3 +41,4 @@ class Board
     end
 
 end
+

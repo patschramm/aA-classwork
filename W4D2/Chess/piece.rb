@@ -1,8 +1,11 @@
+require 'byebug'
+
 class Piece
     attr_reader :board, :color
     attr_accessor :pos
 
     def initialize(board, color, pos)
+        debugger
         @board = board
         @color = color
         @pos = pos
@@ -12,7 +15,7 @@ class Piece
     def valid_moves
         moves.select do |pos|
             x, y = pos
-            pos if (0..7).to_a.include?(x) && (0..7).to_a.include?(y) && board[pos].color != color
+            pos if board.in_bounds?(pos) && board[pos].color != color
         end
     end
 
@@ -56,7 +59,7 @@ module Slideable
             curr_x += dx
             curr_y += dy
             pos = [curr_x, curr_y]
-            break if curr_x > 7 || curr_x < 0 || curr_y > 7 || curr_y < 0
+            break if !board.in_bounds?(pos)
             moves << pos
         end
         moves
@@ -64,5 +67,55 @@ module Slideable
 
 end
 
+
+
 class Rook < Piece
+    include Slideable
+
+    def initialize(board, color, pos)
+        super(board, color, pos)
+    end
+
+    def move_dirs
+        horizontal_dirs
+    end
+
+    def symbol
+        color == :white ? '♖' : '♜'
+    end
 end
+
+class Bishop < Piece
+    include Slideable
+
+    def initialize(board, color, pos)
+        super(board, color, pos)
+    end
+
+    def move_dirs
+        diagonal_dirs
+    end
+
+    def symbol
+        color == :white ? '♗' : '♝'
+    end
+end
+
+class Queen < Piece
+    include Slideable
+
+    def initialize(board, color, pos)
+      super(board, color, pos)
+    end
+
+    def move_dirs
+        diagonal_dirs && horizontal_dirs
+    end
+
+    def symbol
+        color == :white ? '♕' : '♛'
+    end
+end
+
+
+
