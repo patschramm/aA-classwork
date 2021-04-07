@@ -3,6 +3,7 @@ require_relative 'piece.rb'
 
 class Rook < Piece
     include Slideable
+    attr_accessor :color
 
     def initialize(board, color, pos)
         super(board, color, pos)
