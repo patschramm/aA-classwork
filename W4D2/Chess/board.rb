@@ -57,22 +57,25 @@ class Board
         (0..7).to_a.include?(x) && (0..7).to_a.include?(y)
     end
 
-    def print_b
-        # print board with piece names
-        rows.each do |row|
-            puts ''
-            row.each do |ele|
-                print ele.to_s
-            end
-        end
-    end
+    # def print_b
+    #     # print board with piece names
+    #     rows.each do |row|
+    #         puts ''
+    #         row.each do |ele|
+    #             print ele.to_s
+    #         end
+    #     end
+    # end
 
 end
 
-a = Board.new
-a.move_piece([1,0], [3,0], :white)
-a.move_piece([0,0], [2,0], :white)
-a.move_piece([2,0], [2,1], :white)
-a.move_piece([1,3], [2,3], :white)
-a.move_piece([2,1], [6,1], :white)
-a.print_b
+# a = Board.new
+# # a.move_piece([1,0], [3,0], :white)
+# # a.move_piece([0,0], [2,0], :white)
+# # a.move_piece([2,0], [2,1], :white)
+# # a.move_piece([1,3], [2,3], :white)
+# # a.move_piece([2,1], [6,1], :white)
+# # a.move_piece([0,0], [6,0], :white)
+# a.move_piece([0,1], [2,2], :white)
+
+# a.print_b

@@ -26,7 +26,7 @@ module Slideable
             curr_x += dx
             curr_y += dy
             pos = [curr_x, curr_y]
-            break if !board.in_bounds?(pos) || !board[pos].is_a?(NullPiece)
+            break if !board.in_bounds?(pos) || (!board[pos].is_a?(NullPiece) && board[pos].color == color)
             moves << pos
         end
         moves
