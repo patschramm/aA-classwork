@@ -1,7 +1,7 @@
 require 'rspec'
 require 'TDD'
 
-describe 'Array' do 
+describe Array do 
   describe '#my_uniq' do
 
       subject(:arr) { [1, 2, 1, 3, 3] }
