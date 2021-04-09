@@ -53,6 +53,24 @@ describe Board do
         end
       end
 
+    end
+
+    describe "#over?" do 
+      context "when game is over" do 
+        it "should return true" do 
+          board.towers[2] = [1, 2, 3, 4]
+          board.towers[0] = [] 
+
+          expect(board.over?).to be true 
+        end
+      end
+
+      context "when game is not over" do 
+        it "should return false" do
+          board.make_move(0,1) 
+          expect(board.over?).to be false
+        end
+      end
 
     end
 end

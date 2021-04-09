@@ -26,6 +26,10 @@ class Board
     end
 
     def over? 
+      if towers.first.empty? 
+        return true if towers[1].length == 4 || towers[2].length == 4 
+      end
 
+      false
     end
 end
