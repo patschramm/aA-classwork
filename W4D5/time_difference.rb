@@ -36,11 +36,20 @@ end
 #     subs
 # end
 
-def largest_contiguous_subsum(arr) 
-    largest_sum = arr.max
-    # pop_arr = arr[0...-1]
-    # shift_arr = arr.drop(1)
-    
+def largest_contiguous_subsum(arr) # O(n) time, O(1) space
+    max = arr.first
+    temp = arr.first
+    (1...arr.length).each do |i|
+        if temp + arr[i] > arr[i]
+            temp = temp + arr[i]
+        else
+            temp = arr[i]
+        end
+        if temp > max
+            max = temp
+        end
+    end
+    max    
 end
 
 list = [5, 3, -7]
