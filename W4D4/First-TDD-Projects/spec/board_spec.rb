@@ -29,13 +29,30 @@ describe Board do
         end
 
         it 'should call #valid_move?' do
-            expect(board.make_move(0, 1)).to receive(:valid_move?)
+            allow(board).to receive(:valid_move?).and_return(true)
+            expect(board.make_move(1, 2)).to be true
         end
 
         it 'should raise an error if a disc is trying to move on top of a smaller disc' do
             board.make_move(0, 1)
             expect{board.make_move(0, 1)}.to raise_error('invalid move')
         end
+    end
+
+    describe "#valid_move?" do 
+      context "when move is valid" do 
+        it "should return true" do 
+          expect(board.valid_move?(0, 1)).to eq true 
+        end
+      end
+
+      context "when move is invalid" do 
+        it "should return false" do 
+          board.make_move(0,1)
+          expect(board.valid_move?(0, 1)).to eq false 
+        end
+      end
+
 
     end
 end
