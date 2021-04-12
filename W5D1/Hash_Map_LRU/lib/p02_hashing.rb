@@ -4,12 +4,18 @@ end
 
 class Array
   def hash
+    sum = 0
+    self.each_with_index do |el, i|
+      sum += el.hash * (i+1)
+    end 
+    sum
   end
 end
 
 class String
   def hash
-  end
+    self.split("").map(&:ord).hash
+  end 
 end
 
 class Hash
