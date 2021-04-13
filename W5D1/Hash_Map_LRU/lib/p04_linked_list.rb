@@ -21,6 +21,7 @@ end
 
 class LinkedList
   include Enumerable
+  attr_reader :head, :tail
   def initialize
     @head = Node.new
     @tail = Node.new
@@ -68,15 +69,16 @@ class LinkedList
   end
 
   def update(key, val)
+    
   end
 
   def remove(key)
   end
 
   def each
-    current_node = @head
-    until current_node == @tail
-      yield(current_node)
+    current_node = self.head.next
+    until current_node == self.tail
+      yield current_node
       current_node = current_node.next
     end
   end
