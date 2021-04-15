@@ -16,7 +16,7 @@ class QuestionFollow
             FROM
               question_follows
             WHERE
-              options.id = id
+              question_follows.id = id
         SQL
         QuestionFollow.new(options)
     end
@@ -28,7 +28,7 @@ class QuestionFollow
             FROM
               question_follows
             WHERE
-              options.user_id = user_id
+              question_follows.user_id = user_id
         SQL
         options.map { |option| QuestionFollow.new(option) }
     end
@@ -40,7 +40,7 @@ class QuestionFollow
             FROM
               question_follows
             WHERE
-              options.question_id = question_id
+              question_follows.question_id = question_id
         SQL
         options.map { |option| QuestionFollow.new(option) }
     end

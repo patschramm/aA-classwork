@@ -17,7 +17,7 @@ class Question
             FROM
               questions
             WHERE
-              options.id = id
+              questions.id = id
         SQL
         Question.new(options)
     end
@@ -29,13 +29,13 @@ class Question
           FROM
             questions
           WHERE
-            options.title = title
+            questions.title = title
         SQL
         Question.new(options)
     end
 
     def self.find_by_author_id(author_id)
-        questions = QuestionsDatabase.instance.execute(<<-SQL, author_id)
+        options = QuestionsDatabase.instance.execute(<<-SQL, author_id)
             SELECT
                 *
             FROM
@@ -44,7 +44,7 @@ class Question
                 questions.author_id = author_id
         SQL
         raise "no questions" if questions.empty?
-        questions.map { |q| Question.new(q) }
+        options.map { |q| Question.new(q) }
     end
 
 end

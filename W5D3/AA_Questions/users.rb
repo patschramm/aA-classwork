@@ -16,7 +16,7 @@ class User
           FROM
             users
           WHERE
-            options.id = id
+            users.id = id
         SQL
         User.new(options)
     end
@@ -28,7 +28,7 @@ class User
           FROM
             users
           WHERE
-            options.fname = fname AND options.lname = lname
+            users.fname = fname AND users.lname = lname
         SQL
         options.map { |option| User.new(option) }
     end
