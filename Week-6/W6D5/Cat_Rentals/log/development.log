@@ -1,0 +1,419 @@
+  [1m[35m (170.5ms)[0m  [1m[35mCREATE DATABASE "Cat_Rentals_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (120.4ms)[0m  [1m[35mCREATE DATABASE "Cat_Rentals_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3611908533777932745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCats (20210423185848)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3611908533777932745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3611908533777932745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCats (20210423185848)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3611908533777932745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3611908533777932745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCats (20210423185848)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210423185848_create_cats.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_cats_on_name" ON "cats"  ("name")[0m
+  ↳ db/migrate/20210423185848_create_cats.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210423185848"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-23 19:13:05.304599"], ["updated_at", "2021-04-23 19:13:05.304599"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3611908533777932745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/patrickschramm/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCat Load (4.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ db/seeds.rb:8
+Started GET "/cats/" for ::1 at 2021-04-23 14:39:39 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/patrickschramm/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316723511000'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/958436b6f1fa72f5/variables" for ::1 at 2021-04-23 14:39:39 -0700
+Started POST "/__better_errors/958436b6f1fa72f5/variables" for ::1 at 2021-04-23 14:39:58 -0700
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/patrickschramm/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCat Create (2.5ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "1895-01-20"], ["color", "tabby"], ["name", "Binx"], ["sex", "M"], ["description", "This cat was blessed by Satan"], ["created_at", "2021-04-23 21:41:29.195784"], ["updated_at", "2021-04-23 21:41:29.195784"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2021-04-20"], ["color", "green"], ["name", "Phore Twintee"], ["sex", "M"], ["description", "Balazay It"], ["created_at", "2021-04-23 21:41:29.200898"], ["updated_at", "2021-04-23 21:41:29.200898"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2012-01-20"], ["color", "teal"], ["name", "Sharkee"], ["sex", "F"], ["description", "California hockey fan"], ["created_at", "2021-04-23 21:41:29.203271"], ["updated_at", "2021-04-23 21:41:29.203271"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2015-01-20"], ["color", "caramel"], ["name", "Snoop Catt"], ["sex", "M"], ["description", "Best friends with Martha Stewart"], ["created_at", "2021-04-23 21:41:29.205404"], ["updated_at", "2021-04-23 21:41:29.205404"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+Started GET "/cats/" for ::1 at 2021-04-23 14:41:38 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316695454240'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/61dae1c9a6fa4da9/variables" for ::1 at 2021-04-23 14:41:38 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:41:42 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316694575140'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/280e86f1650dea4a/variables" for ::1 at 2021-04-23 14:41:43 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:41:43 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316691628620'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/9451efbbf523296a/variables" for ::1 at 2021-04-23 14:41:43 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:41:44 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (9.3ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316694914740'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/a281dc19cd7755b5/variables" for ::1 at 2021-04-23 14:41:44 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:41:44 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316722312320'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/b7c3e8404e218670/variables" for ::1 at 2021-04-23 14:41:44 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:39 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316716128400'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/5f44532fcd3a4140/variables" for ::1 at 2021-04-23 14:44:39 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:40 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316707415040'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/09337829959a46d0/variables" for ::1 at 2021-04-23 14:44:40 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:41 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316694506460'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/c1e691cca5c11663/variables" for ::1 at 2021-04-23 14:44:41 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:41 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316691905800'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/20377a4d0630d754/variables" for ::1 at 2021-04-23 14:44:41 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:41 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316715850820'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/24e55cf2a5d964de/variables" for ::1 at 2021-04-23 14:44:41 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:41 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316715701120'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/ead49f851cd84bb0/variables" for ::1 at 2021-04-23 14:44:42 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:42 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316703965740'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/d48c2aa86c1610af/variables" for ::1 at 2021-04-23 14:44:42 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:42 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316707649000'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/04c8f604a0fab21f/variables" for ::1 at 2021-04-23 14:44:42 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:42 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316691605580'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/aba6ca309b55bc68/variables" for ::1 at 2021-04-23 14:44:43 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:43 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316707306240'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/24c25157b3343dee/variables" for ::1 at 2021-04-23 14:44:43 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:43 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316702406960'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/becb1c03faff41bd/variables" for ::1 at 2021-04-23 14:44:43 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:44:43 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316724100080'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/a34cedfb258a1b8d/variables" for ::1 at 2021-04-23 14:44:44 -0700
+Started POST "/__better_errors/a34cedfb258a1b8d/variables" for ::1 at 2021-04-23 14:44:45 -0700
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/patrickschramm/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Started GET "/cats/" for ::1 at 2021-04-23 14:45:18 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (426.1ms)
+Completed 500 Internal Server Error in 441ms (ActiveRecord: 9.5ms)
+
+
+
+NameError - undefined local variable or method `index' for #<#<Class:0x00007fe7c5c0cc90>:0x00007fe7c70168f8>:
+  app/views/cats/index.html.erb:5:in `block in _app_views_cats_index_html_erb___141540700830832507_70316726462640'
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316726462640'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/a36217df738f86c0/variables" for ::1 at 2021-04-23 14:45:19 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:45:44 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.5ms)
+
+
+
+ActionView::MissingTemplate - Missing partial cats/_cat, application/_cat with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/patrickschramm/Desktop/aA-classwork/Week-6/W6D5/Cat_Rentals/app/views":
+  app/views/cats/index.html.erb:5:in `block in _app_views_cats_index_html_erb___141540700830832507_70316695524940'
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316695524940'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/17dde390f90e27ab/variables" for ::1 at 2021-04-23 14:45:45 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:45:45 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.7ms)
+
+
+
+ActionView::MissingTemplate - Missing partial cats/_cat, application/_cat with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/patrickschramm/Desktop/aA-classwork/Week-6/W6D5/Cat_Rentals/app/views":
+  app/views/cats/index.html.erb:5:in `block in _app_views_cats_index_html_erb___141540700830832507_70316690887100'
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316690887100'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/915a73152af07c45/variables" for ::1 at 2021-04-23 14:45:46 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:51:03 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (13.3ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.6ms)
+
+
+
+ActionView::MissingTemplate - Missing partial cats/_cat, application/_cat with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/patrickschramm/Desktop/aA-classwork/Week-6/W6D5/Cat_Rentals/app/views":
+  app/views/cats/index.html.erb:5:in `block in _app_views_cats_index_html_erb___141540700830832507_70316703556780'
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316703556780'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/242c7b713165b783/variables" for ::1 at 2021-04-23 14:51:04 -0700
+Started GET "/cats/" for ::1 at 2021-04-23 14:51:04 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+
+ActionView::MissingTemplate - Missing partial cats/_cat, application/_cat with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/patrickschramm/Desktop/aA-classwork/Week-6/W6D5/Cat_Rentals/app/views":
+  app/views/cats/index.html.erb:5:in `block in _app_views_cats_index_html_erb___141540700830832507_70316707005920'
+  app/views/cats/index.html.erb:3:in `_app_views_cats_index_html_erb___141540700830832507_70316707005920'
+  app/controllers/cats_controller.rb:4:in `index'
+
+Started POST "/__better_errors/ed83f384431abf6d/variables" for ::1 at 2021-04-23 14:51:05 -0700
+Started POST "/__better_errors/ed83f384431abf6d/variables" for ::1 at 2021-04-23 14:52:22 -0700
+Started POST "/__better_errors/ed83f384431abf6d/variables" for ::1 at 2021-04-23 14:52:22 -0700
