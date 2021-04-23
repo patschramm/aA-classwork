@@ -1,0 +1,13 @@
+
+<h1><%= @user.to_s %> </h1>
+<h1><%= @user.username %></h1>
+<form action="<%= user_url(@user) %>" method="POST"> 
+    <input type="hidden" name="_method" value="PATCH" >
+
+    <label for="username">
+    <input type="text" id="username" name="user[username]" value="<%= @user.username %>">
+    <br>
+    <input type="text" id="age" name="user[age]" value="<%= @user.age %>">
+    <br>
+    <input type="submit" value="Submit">
+</form>
