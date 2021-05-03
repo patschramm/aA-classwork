@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
     #SPIRE
 
+    def has_many :subs,
+        class_name: :Sub,
+        foreign_key: :moderator_id
+
     def password=(password)
         self.password_digest = BCrypt::Password.create(password)
         @password = password
