@@ -13,16 +13,17 @@ class SubsController < ApplicationController
     end
 
     def show
-        @sub = Sub.find(params[:id])
+        @sub = Sub.find_by(id: params[:id])
+        # @sub.moderator_id = params[:user_id]
         render :show
     end
 
     def create
         @sub = Sub.create(sub_params)
-        @sub.user_id = params[:user_id]
+        @sub.moderator_id = current_user.id
 
         if @sub.save
-            redirect_to sub_url(id: params[:id])
+            redirect_to sub_url(@sub)
         else
             flash.now[:errors] = @sub.errors.full_messages
             render :new
@@ -49,10 +50,12 @@ class SubsController < ApplicationController
     private
 
     def sub_params
-        params.require(:sub).permit(:title, :description)
+        params.require(:sub).permit(:title, :description, :moderator_id)
     end
 
     def require_moderator
-        @sub.moderator_id == current_user.id
+        @sub = Sub.find_by(id: params[:id])
+        
+        render json: "Forbidden", status: 403 unless @sub.moderator_id == current_user.id
     end
 end

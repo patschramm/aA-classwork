@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  username        :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_session_token  (session_token) UNIQUE
+#  index_users_on_username       (username) UNIQUE
+#
 class User < ApplicationRecord
     validates :username, :session_token, :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
@@ -7,9 +23,13 @@ class User < ApplicationRecord
 
     #SPIRE
 
-    def has_many :subs,
-        class_name: :Sub,
-        foreign_key: :moderator_id
+        has_many :subs,
+            class_name: :Sub,
+            foreign_key: :moderator_id
+
+        has_many :posts,
+            foreign_key: :author_id,
+            class_name: :Post
 
     def password=(password)
         self.password_digest = BCrypt::Password.create(password)
