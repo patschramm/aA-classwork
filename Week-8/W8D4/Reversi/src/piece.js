@@ -24,7 +24,7 @@ Piece.prototype.flip = function () {
  * based on its color.
  */
 Piece.prototype.toString = function () {
-    return this.color[0].toUpperCase();
+    return (this.color === "white") ? "Ⓦ" : "Ⓑ";
 };
 
 // DON'T TOUCH THIS CODE
