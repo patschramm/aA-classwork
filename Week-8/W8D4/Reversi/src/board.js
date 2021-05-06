@@ -65,7 +65,6 @@ Board.prototype.getPiece = function (pos) {
 Board.prototype.isMine = function (pos, color) {
   let piece = this.getPiece(pos);
   return piece && piece.color === color;
-
 };
 
 /**
@@ -90,17 +89,17 @@ Board.prototype.isOccupied = function (pos) {
  */
 function addPosition(pos, dir) {
   return [dir[0] + pos[0], dir[1] + pos[1]];
-};
+}
 
 Board.prototype._positionsToFlip = function (pos, color, dir, piecesToFlip) {
   piecesToFlip = piecesToFlip || [];
   let nextPos = addPosition(pos, dir);
 
-  if(!this.isValidPos(nextPos) || !this.isOccupied(nextPos)) {
+  if (!this.isValidPos(nextPos) || !this.isOccupied(nextPos)) {
     return [];
   }
 
-  if(this.isMine(nextPos, color)) {
+  if (this.isMine(nextPos, color)) {
     return piecesToFlip;
   }
 
@@ -114,7 +113,17 @@ Board.prototype._positionsToFlip = function (pos, color, dir, piecesToFlip) {
  * taking the position will result in some pieces of the opposite
  * color being flipped.
  */
-Board.prototype.validMove = function (pos, color) {};
+Board.prototype.validMove = function (pos, color) {
+  if (this.isOccupied(pos)) {
+    return false;
+  }
+  for (let i = 0; i < Board.DIRS.length; i++) {
+    if (this._positionsToFlip(pos, color, Board.DIRS[i]).length > 0) {
+      return true;
+    }
+  }
+  return false;
+};
 
 /**
  * Adds a new piece of the given color to the given position, flipping the
@@ -122,13 +131,36 @@ Board.prototype.validMove = function (pos, color) {};
  *
  * Throws an error if the position represents an invalid move.
  */
-Board.prototype.placePiece = function (pos, color) {};
+Board.prototype.placePiece = function (pos, color) {
+  if (!this.validMove(pos, color)) {
+    throw new Error("Invalid move!");
+  }
+  let arr = [];
+  for (let i = 0; i < Board.DIRS.length; i++) {
+    arr = arr.concat(this._positionsToFlip(pos, color, Board.DIRS[i]));
+  }
+  for (let j = 0; j < arr.length; j++) {
+    this.getPiece(arr[j]).flip();
+  }
+  this.grid[pos[0]][pos[1]] = new Piece(color);
+};
 
 /**
  * Produces an array of all valid positions on
  * the Board for a given color.
  */
-Board.prototype.validMoves = function (color) {};
+Board.prototype.validMoves = function (color) {
+  let arr = [];
+  for (let i = 0; i < this.grid.length; i++) {
+    // let row = this.grid[i].length;
+    for (let j = 0; j < this.grid.length; j++) {
+      if (this.validMove([i, j], color)) {
+        arr.push([i, j]);
+      }
+    }
+  }
+  return arr;
+};
 
 /**
  * Checks if there are any valid moves for the given color.
