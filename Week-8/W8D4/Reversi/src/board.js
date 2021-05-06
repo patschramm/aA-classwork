@@ -165,18 +165,38 @@ Board.prototype.validMoves = function (color) {
 /**
  * Checks if there are any valid moves for the given color.
  */
-Board.prototype.hasMove = function (color) {};
+Board.prototype.hasMove = function (color) {
+  return this.validMoves(color).length > 0;
+};
 
 /**
  * Checks if both the white player and
  * the black player are out of moves.
  */
-Board.prototype.isOver = function () {};
+Board.prototype.isOver = function () {
+  return (!this.hasMove("black") && !this.hasMove("white"))
+};
 
 /**
  * Prints a string representation of the Board to the console.
  */
-Board.prototype.print = function () {};
+Board.prototype.print = function () {
+
+  for(let i = 0; i < this.grid.length; i++) {
+    let row = "";
+
+    for(let j = 0; j < this.grid.length; j++){
+
+      if (this.getPiece([i, j]) != undefined) {
+        row += ' ' + this.getPiece([i, j]).toString() + ' ';
+      } else {
+        row += ' _ ';
+      }
+    }
+
+    console.log(row);
+  }
+};
 
 // DON'T TOUCH THIS CODE
 if (typeof window === "undefined") {
