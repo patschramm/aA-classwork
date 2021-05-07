@@ -2,7 +2,7 @@ const readline = require("readline");
 
 const reader = readline.createInterface(process.stdin, process.stdout);
 
-function addNumbers(sum, numsLeft, completionCallback) {
+function addNumbers(sum = 0, numsLeft, completionCallback) {
     if (numsLeft > 0) {
         reader.question('Give me a number ', function (response) {
             let num = parseInt(response);
