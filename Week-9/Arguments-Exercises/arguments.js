@@ -89,7 +89,28 @@ function curriedSum(numArgs) {
     }
     return _curriedSum;
 }
+// const sum = curriedSum(4);
+// console.log(sum(5)(30)(20)(1)); // => 56
 
+Function.prototype.curry = function (numArgs) {
+    let nums = [];
+    const that = this;
 
-const sum = curriedSum(4);
-console.log(sum(5)(30)(20)(1)); // => 56
+    return function _curry(num) {
+        nums.push(num);
+
+        if (nums.length === numArgs) {
+            return that();
+        } else {
+            return _curry;
+        }
+    }
+};
+
+function lies () {
+    console.log("LOVE JS /s")
+};
+
+const test = lies.curry(4);
+console.log(test)
+test(1)(2)(3)(4);
