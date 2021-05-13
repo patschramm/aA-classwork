@@ -94,10 +94,12 @@
 /***/ (function(module, exports) {
 
 function FollowToggle($el) {
-    this.userId = $el.data.userId;
-    this.followState = $el.data.initialFollowState;
+    // debugger
+    this.userId = $el.data('userid');
+    this.followState = $el.data('initialfollowstate');
     this.$el = $el;
     this.render();
+    this.handleClick();
 }
 
 FollowToggle.prototype.render = function () {
@@ -110,16 +112,37 @@ FollowToggle.prototype.render = function () {
 }
 
 FollowToggle.prototype.handleClick = function () {
+    // debugger
     this.$el.on("click", (e) => {
-       e.preventDefault();
+        // debugger
+    //    e.preventDefault();
        if (!this.followState) {
-           let followChange = $.ajax({
-               method: "POST",
-               url: `users/${this.userId}/follow`,
+           return $.ajax({
+               type: "POST",
+               url: `/users/${this.userId}/follow`,
                dataType: "JSON",
+               success: this.toggle()
+           })
+       } else {
+           return $.ajax({
+               type: "DELETE",
+               url: `/users/${this.userId}/follow`,
+               dataType: "JSON",
+               success: this.toggle()
            })
        }
     })
+}
+
+FollowToggle.prototype.toggle = function () {
+    // debugger
+    if (this.followState) {
+        this.followState = false;
+    } else {
+        this.followState = true;
+    }
+
+    this.render();
 }
 
 module.exports = FollowToggle;
