@@ -1,0 +1,23 @@
+{
+  "name": "ajax_twitter",
+  "private": true,
+  "scripts": {
+    "postinstall": "webpack --mode=development",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "dependencies": {
+    "webpack": "^4.6.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.4"
+  },
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
