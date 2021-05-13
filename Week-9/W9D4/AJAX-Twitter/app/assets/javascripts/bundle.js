@@ -86,14 +86,37 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/follow_toggle.js":
+/*!***********************************!*\
+  !*** ./frontend/follow_toggle.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function FollowToggle(el) {
+    this.userId = el.data.user-id;
+    this.followState = el.data.initial-follow-state;
+    this.$el = $(el);
+}
+
+module.exports = FollowToggle;
+
+/***/ }),
+
 /***/ "./frontend/twitter.js":
 /*!*****************************!*\
   !*** ./frontend/twitter.js ***!
   \*****************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+let FollowToggle = __webpack_require__ (/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
+window.FollowToggle = FollowToggle;
 
+$(document).ready(function () {
+    let $followButtons = $("input .follow_toggle");
+    $followButtons.each((idx, el) => new FollowToggle(el));
+});
 
 /***/ })
 

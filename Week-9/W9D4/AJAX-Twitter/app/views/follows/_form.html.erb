@@ -1,1 +1,1 @@
-<input type="button" value="" class="follow_toggle" data-user-id="<% @user %>" data-initial-follow-state="<%@user.follows?()%>">
+<input type="submit" class="follow_toggle" data-user-id="<% user.id %>" data-initial-follow-state="<%current_user.follows?(user)%>">
