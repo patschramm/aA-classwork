@@ -93,10 +93,33 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function FollowToggle(el) {
-    this.userId = el.data.user-id;
-    this.followState = el.data.initial-follow-state;
-    this.$el = $(el);
+function FollowToggle($el) {
+    this.userId = $el.data.userId;
+    this.followState = $el.data.initialFollowState;
+    this.$el = $el;
+    this.render();
+}
+
+FollowToggle.prototype.render = function () {
+    if (!this.followState) {
+        this.$el.val("Follow");
+    } else {
+        this.$el.val("Unfollow");
+    }
+    // $('body').append($el);
+}
+
+FollowToggle.prototype.handleClick = function () {
+    this.$el.on("click", (e) => {
+       e.preventDefault();
+       if (!this.followState) {
+           let followChange = $.ajax({
+               method: "POST",
+               url: `users/${this.userId}/follow`,
+               dataType: "JSON",
+           })
+       }
+    })
 }
 
 module.exports = FollowToggle;
@@ -114,8 +137,8 @@ let FollowToggle = __webpack_require__ (/*! ./follow_toggle.js */ "./frontend/fo
 window.FollowToggle = FollowToggle;
 
 $(document).ready(function () {
-    let $followButtons = $("input .follow_toggle");
-    $followButtons.each((idx, el) => new FollowToggle(el));
+    const $followButtons = $("input.follow_toggle");
+    $followButtons.each((idx, el) => new FollowToggle($(el)));
 });
 
 /***/ })
