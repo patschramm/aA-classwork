@@ -2,7 +2,7 @@ class FollowsController < ApplicationController
   before_action :require_logged_in!
 
   def create
-    debugger
+    # debugger
     # simulate latency
     sleep(1)
 
@@ -15,7 +15,7 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    debugger
+    # debugger
     # simulate latency
     sleep(1)
 
