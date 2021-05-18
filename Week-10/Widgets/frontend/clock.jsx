@@ -21,14 +21,26 @@ class Clock extends Component {
     }
 
     render() { 
-        let hrs = this.state.date.getHours() % 12
-        let mins = this.state.date.getMinutes()
-        let secs = this.state.date.getSeconds()
+        let hrs = this.state.date.getHours() % 12;
+        let mins = this.state.date.getMinutes();
+        let secs = this.state.date.getSeconds();
+        let dt = this.state.date.toDateString();
+
+        hrs = (hrs < 10) ? '0' + hrs : hrs;
+        mins = (mins < 10) ? '0' + mins : mins;
+        secs = (secs < 10) ? '0' + secs : secs;
 
         return (  
-            <div>
-                <h1>Clock</h1>
-                <h1>{hrs}:{mins}:{secs}</h1>
+            <div id="clock">
+                <div id="clock-titles">
+                    <h1>Date</h1>
+                    <h1>Clock</h1>
+                </div>
+
+                <div id="time-date">
+                    <h1>{dt}</h1>
+                    <h1>{hrs}:{mins}:{secs}</h1>
+                </div>
             </div>
         );
     }

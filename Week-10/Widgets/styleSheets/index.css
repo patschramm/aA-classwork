@@ -1,0 +1,16 @@
+#clock {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+    color: cadetblue;
+}
+
+#time-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+body {
+    background-color: rgba(25,39,65,0.87);
+}
