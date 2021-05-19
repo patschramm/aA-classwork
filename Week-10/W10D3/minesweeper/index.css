@@ -1,0 +1,21 @@
+#board {
+    display: flex;
+    text-align: center;
+    width: 200px;
+    margin:0 auto;
+}
+
+.unexplored, .explored, .bombed, .flagged {
+    height: 20px;
+    background: lightgray;
+    width: 20px;
+    border-width: 2px;
+}
+
+.explored, .bombed {
+    border-style: inset;
+}
+
+.unexplored, .flagged {
+    border-style: outset;
+}
