@@ -3,43 +3,26 @@ import React, { Component } from 'react';
 class Tabs extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {currIdx: 0}
         this.click = this.click.bind(this)
     }
 
-    click(e) {
-        const indx = e.target.id;
-        const articles = document.getElementsByTagName('article');
-        const articleArr = Array.from(articles)[indx];
-        articleArr.forEach((article) => {
-            if (article.id === indx) {
-                article.className = 'show';
-            } else {
-                article.className = 'hide'
-            }
-
-        })
+    click(idx) {
+        this.setState({currIdx: idx})
     }
 
     render() { 
         return ( 
-            <div>
+            <div className="tab-section">
                 <h1>Tabs</h1>
-                <ul>
-                    <li onClick={this.click}>
-                        <h1 id='0'>{this.props.tabs[0].title}</h1>
-                    </li>
-                    <li onClick={this.click}>
-                        <h1 id='1'>{this.props.tabs[1].title}</h1>
-                    </li>
-                    <li onClick={this.click}>
-                        <h1 id='2'>{this.props.tabs[2].title}</h1>
-                    </li>
-                </ul>
-
-                <article className="show">{this.props.tabs[0].content}</article>
-                <article className="hide">{this.props.tabs[1].content}</article>
-                <article className="hide">{this.props.tabs[2].content}</article>
+                    <div className="tabs">
+                        {this.props.tabs.map((tab, i) => {
+                        return (
+                            <h2 onClick={() => this.click(i)} key={i}>{tab.title}</h2>
+                            );
+                    })}
+                    </div>
+                <article>{this.props.tabs[this.state.currIdx].content}</article>
             </div>
         );
     }

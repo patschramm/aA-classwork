@@ -14,3 +14,35 @@
 body {
     background-color: rgba(25,39,65,0.87);
 }
+
+.tabs {
+    display: flex;
+}
+
+.tabs h2 {
+    padding: 0 5px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    background-color: silver;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.tab-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 156px;
+}
+
+.lowers {
+    display: flex;
+    justify-content: space-around;
+}
+
+article {
+    background-color: silver;
+    width: inherit;
+    text-align: center;
+    padding-bottom: 100px;
+}

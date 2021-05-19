@@ -14,7 +14,10 @@ const Root = function () {
 	return (
 		<div>
 			<Clock />
-			<Tabs tabs={tabs} />
+			<div className="lowers">
+				<Tabs tabs={tabs} /> 
+				<div></div>
+			</div>
 		</div>
 	);
 };
