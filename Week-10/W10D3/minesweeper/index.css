@@ -19,3 +19,31 @@
 .unexplored, .flagged {
     border-style: outset;
 }
+
+.modal-over {
+    width: 216px;
+    height: 216px;
+    position: sticky;
+    background: white;
+    z-index: 100;
+    margin: 0 auto;
+}
+
+.modal {
+    display: none;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.screen-over {
+    display: none;
+}

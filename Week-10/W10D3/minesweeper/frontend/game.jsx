@@ -9,6 +9,11 @@ class Game extends React.Component {
         this.updateGame = this.updateGame.bind(this);
     }
 
+    restartGame() {
+        let board = new Minesweeper.Board(9,5)
+        this.setState({board: board});
+    }
+
     updateGame(tile, flag) {
         if (flag) {
             tile.toggleFlag();
@@ -19,9 +24,29 @@ class Game extends React.Component {
     }
 
     render() { 
+        let text;
+        let over = ["modal", "screen"]
+        if (this.state.board.won()) {
+            text = "Congratulations, you won!!!";
+            over = ["modal-over", "screen-over"];
+        };
+
+        if (this.state.board.lost()) {
+            text = "You lost!";
+            over = ["modal-over", "screen-over"];
+        };
+
         return ( 
             <div>
-                <Board board={this.state.board} updateGame={this.updateGame} />
+                <div>
+                    <Board board={this.state.board} updateGame={this.updateGame} />
+                </div>
+                <div className={over[0]}>
+                    <p>{text}</p>
+                    <button onClick={this.restartGame}>Restart Game</button>
+                </div>
+                <div className={over[1]}>
+                </div>
             </div>
          );
     }
