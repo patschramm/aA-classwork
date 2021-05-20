@@ -1,8 +1,9 @@
 #board {
     display: flex;
     text-align: center;
-    width: 200px;
+    width: 216px;
     margin:0 auto;
+    margin-top: 50px;
 }
 
 .unexplored, .explored, .bombed, .flagged {
@@ -22,18 +23,23 @@
 
 .modal-over {
     width: 216px;
-    height: 216px;
-    position: sticky;
+    height: 100px;
+    position: relative;
     background: white;
     z-index: 100;
     margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 10px;
+    margin-top: 20px;
+
 }
 
 .modal {
     display: none;
 }
 
-.screen {
+.screen-over {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -41,9 +47,8 @@
     right: 0;
     z-index: 50;
     background-color: rgba(0, 0, 0, 0.4);
-    display: none;
 }
 
-.screen-over {
+.screen {
     display: none;
 }
