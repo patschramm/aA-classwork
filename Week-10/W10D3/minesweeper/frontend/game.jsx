@@ -7,11 +7,11 @@ class Game extends React.Component {
         super(props);
         this.state = {board: new Minesweeper.Board(9,5)};
         this.updateGame = this.updateGame.bind(this);
+        this.restartGame = this.restartGame.bind(this);
     }
 
     restartGame() {
-        let board = new Minesweeper.Board(9,5)
-        this.setState({board: board});
+        this.setState({board: new Minesweeper.Board(9,5)});
     }
 
     updateGame(tile, flag) {
