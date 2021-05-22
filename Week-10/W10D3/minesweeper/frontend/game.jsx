@@ -5,13 +5,13 @@ import * as Minesweeper from "../minesweeper.js";
 class Game extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {board: new Minesweeper.Board(9,5)};
+        this.state = {board: new Minesweeper.Board(9,8)};
         this.updateGame = this.updateGame.bind(this);
         this.restartGame = this.restartGame.bind(this);
     }
 
     restartGame() {
-        this.setState({board: new Minesweeper.Board(9,5)});
+        this.setState({board: new Minesweeper.Board(9,8)});
     }
 
     updateGame(tile, flag) {
